@@ -7,6 +7,8 @@ Overview
 Volley is an HTTP library that makes networking for Android apps easier and most importantly, faster.
 For more information please visit [http://developer.android.com/training/volley/index.html](http://developer.android.com/training/volley/index.html)
 
+Full java documentation is available [here](doc/index.html)
+
 Release
 -------
 android-6.0.1_r5
