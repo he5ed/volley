@@ -1,0 +1,3963 @@
+<api>
+<package name="com.android.volley"
+>
+<class name="AuthFailureError"
+ extends="com.android.volley.VolleyError"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="AuthFailureError"
+ type="com.android.volley.AuthFailureError"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<constructor name="AuthFailureError"
+ type="com.android.volley.AuthFailureError"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="intent" type="android.content.Intent">
+</parameter>
+</constructor>
+<constructor name="AuthFailureError"
+ type="com.android.volley.AuthFailureError"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="response" type="com.android.volley.NetworkResponse">
+</parameter>
+</constructor>
+<constructor name="AuthFailureError"
+ type="com.android.volley.AuthFailureError"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="message" type="java.lang.String">
+</parameter>
+</constructor>
+<constructor name="AuthFailureError"
+ type="com.android.volley.AuthFailureError"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="message" type="java.lang.String">
+</parameter>
+<parameter name="reason" type="java.lang.Exception">
+</parameter>
+</constructor>
+<method name="getResolutionIntent"
+ return="android.content.Intent"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+<interface name="Cache"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="clear"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="get"
+ return="com.android.volley.Cache.Entry"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="key" type="java.lang.String">
+</parameter>
+</method>
+<method name="initialize"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="invalidate"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="key" type="java.lang.String">
+</parameter>
+<parameter name="fullExpire" type="boolean">
+</parameter>
+</method>
+<method name="put"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="key" type="java.lang.String">
+</parameter>
+<parameter name="entry" type="com.android.volley.Cache.Entry">
+</parameter>
+</method>
+<method name="remove"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="key" type="java.lang.String">
+</parameter>
+</method>
+</interface>
+<class name="Cache.Entry"
+ extends="java.lang.Object"
+ abstract="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="Cache.Entry"
+ type="com.android.volley.Cache.Entry"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="isExpired"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="refreshNeeded"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<field name="data"
+ type="byte[]"
+ transient="false"
+ volatile="false"
+ value="null"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="etag"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="lastModified"
+ type="long"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="responseHeaders"
+ type="java.util.Map"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="serverDate"
+ type="long"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="softTtl"
+ type="long"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="ttl"
+ type="long"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+<class name="CacheDispatcher"
+ extends="java.lang.Thread"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="CacheDispatcher"
+ type="com.android.volley.CacheDispatcher"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="cacheQueue" type="java.util.concurrent.BlockingQueue&lt;com.android.volley.Request&lt;?&gt;&gt;">
+</parameter>
+<parameter name="networkQueue" type="java.util.concurrent.BlockingQueue&lt;com.android.volley.Request&lt;?&gt;&gt;">
+</parameter>
+<parameter name="cache" type="com.android.volley.Cache">
+</parameter>
+<parameter name="delivery" type="com.android.volley.ResponseDelivery">
+</parameter>
+</constructor>
+<method name="quit"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+<class name="DefaultRetryPolicy"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="com.android.volley.RetryPolicy">
+</implements>
+<constructor name="DefaultRetryPolicy"
+ type="com.android.volley.DefaultRetryPolicy"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<constructor name="DefaultRetryPolicy"
+ type="com.android.volley.DefaultRetryPolicy"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="initialTimeoutMs" type="int">
+</parameter>
+<parameter name="maxNumRetries" type="int">
+</parameter>
+<parameter name="backoffMultiplier" type="float">
+</parameter>
+</constructor>
+<method name="getBackoffMultiplier"
+ return="float"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getCurrentRetryCount"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getCurrentTimeout"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="hasAttemptRemaining"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+</method>
+<method name="retry"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="error" type="com.android.volley.VolleyError">
+</parameter>
+<exception name="VolleyError" type="com.android.volley.VolleyError">
+</exception>
+</method>
+<field name="DEFAULT_BACKOFF_MULT"
+ type="float"
+ transient="false"
+ volatile="false"
+ value="1.0f"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="DEFAULT_MAX_RETRIES"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="1"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="DEFAULT_TIMEOUT_MS"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="2500"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+<class name="ExecutorDelivery"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="com.android.volley.ResponseDelivery">
+</implements>
+<constructor name="ExecutorDelivery"
+ type="com.android.volley.ExecutorDelivery"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="handler" type="android.os.Handler">
+</parameter>
+</constructor>
+<constructor name="ExecutorDelivery"
+ type="com.android.volley.ExecutorDelivery"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="executor" type="java.util.concurrent.Executor">
+</parameter>
+</constructor>
+<method name="postError"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="request" type="com.android.volley.Request&lt;?&gt;">
+</parameter>
+<parameter name="error" type="com.android.volley.VolleyError">
+</parameter>
+</method>
+<method name="postResponse"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="request" type="com.android.volley.Request&lt;?&gt;">
+</parameter>
+<parameter name="response" type="com.android.volley.Response&lt;?&gt;">
+</parameter>
+</method>
+<method name="postResponse"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="request" type="com.android.volley.Request&lt;?&gt;">
+</parameter>
+<parameter name="response" type="com.android.volley.Response&lt;?&gt;">
+</parameter>
+<parameter name="runnable" type="java.lang.Runnable">
+</parameter>
+</method>
+</class>
+<interface name="Network"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="performRequest"
+ return="com.android.volley.NetworkResponse"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="request" type="com.android.volley.Request&lt;?&gt;">
+</parameter>
+<exception name="VolleyError" type="com.android.volley.VolleyError">
+</exception>
+</method>
+</interface>
+<class name="NetworkDispatcher"
+ extends="java.lang.Thread"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="NetworkDispatcher"
+ type="com.android.volley.NetworkDispatcher"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="queue" type="java.util.concurrent.BlockingQueue&lt;com.android.volley.Request&lt;?&gt;&gt;">
+</parameter>
+<parameter name="network" type="com.android.volley.Network">
+</parameter>
+<parameter name="cache" type="com.android.volley.Cache">
+</parameter>
+<parameter name="delivery" type="com.android.volley.ResponseDelivery">
+</parameter>
+</constructor>
+<method name="quit"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+<class name="NetworkError"
+ extends="com.android.volley.VolleyError"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="NetworkError"
+ type="com.android.volley.NetworkError"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<constructor name="NetworkError"
+ type="com.android.volley.NetworkError"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="cause" type="java.lang.Throwable">
+</parameter>
+</constructor>
+<constructor name="NetworkError"
+ type="com.android.volley.NetworkError"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="networkResponse" type="com.android.volley.NetworkResponse">
+</parameter>
+</constructor>
+</class>
+<class name="NetworkResponse"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="NetworkResponse"
+ type="com.android.volley.NetworkResponse"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="statusCode" type="int">
+</parameter>
+<parameter name="data" type="byte[]">
+</parameter>
+<parameter name="headers" type="java.util.Map&lt;java.lang.String, java.lang.String&gt;">
+</parameter>
+<parameter name="notModified" type="boolean">
+</parameter>
+<parameter name="networkTimeMs" type="long">
+</parameter>
+</constructor>
+<constructor name="NetworkResponse"
+ type="com.android.volley.NetworkResponse"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="statusCode" type="int">
+</parameter>
+<parameter name="data" type="byte[]">
+</parameter>
+<parameter name="headers" type="java.util.Map&lt;java.lang.String, java.lang.String&gt;">
+</parameter>
+<parameter name="notModified" type="boolean">
+</parameter>
+</constructor>
+<constructor name="NetworkResponse"
+ type="com.android.volley.NetworkResponse"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="data" type="byte[]">
+</parameter>
+</constructor>
+<constructor name="NetworkResponse"
+ type="com.android.volley.NetworkResponse"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="data" type="byte[]">
+</parameter>
+<parameter name="headers" type="java.util.Map&lt;java.lang.String, java.lang.String&gt;">
+</parameter>
+</constructor>
+<field name="data"
+ type="byte[]"
+ transient="false"
+ volatile="false"
+ value="null"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="headers"
+ type="java.util.Map"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="networkTimeMs"
+ type="long"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="notModified"
+ type="boolean"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="statusCode"
+ type="int"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+<class name="NoConnectionError"
+ extends="com.android.volley.NetworkError"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="NoConnectionError"
+ type="com.android.volley.NoConnectionError"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<constructor name="NoConnectionError"
+ type="com.android.volley.NoConnectionError"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="reason" type="java.lang.Throwable">
+</parameter>
+</constructor>
+</class>
+<class name="ParseError"
+ extends="com.android.volley.VolleyError"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="ParseError"
+ type="com.android.volley.ParseError"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<constructor name="ParseError"
+ type="com.android.volley.ParseError"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="networkResponse" type="com.android.volley.NetworkResponse">
+</parameter>
+</constructor>
+<constructor name="ParseError"
+ type="com.android.volley.ParseError"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="cause" type="java.lang.Throwable">
+</parameter>
+</constructor>
+</class>
+<class name="Request"
+ extends="java.lang.Object"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="Request"
+ type="com.android.volley.Request"
+ static="false"
+ final="false"
+ deprecated="deprecated"
+ visibility="public"
+>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="listener" type="com.android.volley.Response.ErrorListener">
+</parameter>
+</constructor>
+<constructor name="Request"
+ type="com.android.volley.Request"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="method" type="int">
+</parameter>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="listener" type="com.android.volley.Response.ErrorListener">
+</parameter>
+</constructor>
+<method name="addMarker"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="tag" type="java.lang.String">
+</parameter>
+</method>
+<method name="cancel"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="compareTo"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="other" type="com.android.volley.Request&lt;T&gt;">
+</parameter>
+</method>
+<method name="deliverError"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="error" type="com.android.volley.VolleyError">
+</parameter>
+</method>
+<method name="deliverResponse"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="response" type="T">
+</parameter>
+</method>
+<method name="getBody"
+ return="byte[]"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<exception name="AuthFailureError" type="com.android.volley.AuthFailureError">
+</exception>
+</method>
+<method name="getBodyContentType"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getCacheEntry"
+ return="com.android.volley.Cache.Entry"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getCacheKey"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getErrorListener"
+ return="com.android.volley.Response.ErrorListener"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getHeaders"
+ return="java.util.Map&lt;java.lang.String, java.lang.String&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<exception name="AuthFailureError" type="com.android.volley.AuthFailureError">
+</exception>
+</method>
+<method name="getMethod"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getParams"
+ return="java.util.Map&lt;java.lang.String, java.lang.String&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<exception name="AuthFailureError" type="com.android.volley.AuthFailureError">
+</exception>
+</method>
+<method name="getParamsEncoding"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+</method>
+<method name="getPostBody"
+ return="byte[]"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="deprecated"
+ visibility="public"
+>
+<exception name="AuthFailureError" type="com.android.volley.AuthFailureError">
+</exception>
+</method>
+<method name="getPostBodyContentType"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="deprecated"
+ visibility="public"
+>
+</method>
+<method name="getPostParams"
+ return="java.util.Map&lt;java.lang.String, java.lang.String&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="deprecated"
+ visibility="protected"
+>
+<exception name="AuthFailureError" type="com.android.volley.AuthFailureError">
+</exception>
+</method>
+<method name="getPostParamsEncoding"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="deprecated"
+ visibility="protected"
+>
+</method>
+<method name="getPriority"
+ return="com.android.volley.Request.Priority"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getRetryPolicy"
+ return="com.android.volley.RetryPolicy"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getSequence"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getTag"
+ return="java.lang.Object"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getTimeoutMs"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getTrafficStatsTag"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getUrl"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="hasHadResponseDelivered"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="isCanceled"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="markDelivered"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="parseNetworkError"
+ return="com.android.volley.VolleyError"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="volleyError" type="com.android.volley.VolleyError">
+</parameter>
+</method>
+<method name="parseNetworkResponse"
+ return="com.android.volley.Response&lt;T&gt;"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="response" type="com.android.volley.NetworkResponse">
+</parameter>
+</method>
+<method name="setCacheEntry"
+ return="com.android.volley.Request&lt;?&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="entry" type="com.android.volley.Cache.Entry">
+</parameter>
+</method>
+<method name="setRequestQueue"
+ return="com.android.volley.Request&lt;?&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="requestQueue" type="com.android.volley.RequestQueue">
+</parameter>
+</method>
+<method name="setRetryPolicy"
+ return="com.android.volley.Request&lt;?&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="retryPolicy" type="com.android.volley.RetryPolicy">
+</parameter>
+</method>
+<method name="setSequence"
+ return="com.android.volley.Request&lt;?&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="sequence" type="int">
+</parameter>
+</method>
+<method name="setShouldCache"
+ return="com.android.volley.Request&lt;?&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="shouldCache" type="boolean">
+</parameter>
+</method>
+<method name="setTag"
+ return="com.android.volley.Request&lt;?&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="tag" type="java.lang.Object">
+</parameter>
+</method>
+<method name="shouldCache"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+<interface name="Request.Method"
+ abstract="true"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<field name="DELETE"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="3"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="DEPRECATED_GET_OR_POST"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="-1"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="GET"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="0"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="HEAD"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="4"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="OPTIONS"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="5"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="PATCH"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="7"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="POST"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="1"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="PUT"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="2"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="TRACE"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="6"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</interface>
+<class name="Request.Priority"
+ extends="java.lang.Enum"
+ abstract="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="valueOf"
+ return="com.android.volley.Request.Priority"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="name" type="java.lang.String">
+</parameter>
+</method>
+<method name="values"
+ return="com.android.volley.Request.Priority[]"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+<class name="RequestQueue"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="RequestQueue"
+ type="com.android.volley.RequestQueue"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="cache" type="com.android.volley.Cache">
+</parameter>
+<parameter name="network" type="com.android.volley.Network">
+</parameter>
+<parameter name="threadPoolSize" type="int">
+</parameter>
+<parameter name="delivery" type="com.android.volley.ResponseDelivery">
+</parameter>
+</constructor>
+<constructor name="RequestQueue"
+ type="com.android.volley.RequestQueue"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="cache" type="com.android.volley.Cache">
+</parameter>
+<parameter name="network" type="com.android.volley.Network">
+</parameter>
+<parameter name="threadPoolSize" type="int">
+</parameter>
+</constructor>
+<constructor name="RequestQueue"
+ type="com.android.volley.RequestQueue"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="cache" type="com.android.volley.Cache">
+</parameter>
+<parameter name="network" type="com.android.volley.Network">
+</parameter>
+</constructor>
+<method name="add"
+ return="com.android.volley.Request&lt;T&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="request" type="com.android.volley.Request&lt;T&gt;">
+</parameter>
+</method>
+<method name="addRequestFinishedListener"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="listener" type="com.android.volley.RequestQueue.RequestFinishedListener&lt;T&gt;">
+</parameter>
+</method>
+<method name="cancelAll"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="filter" type="com.android.volley.RequestQueue.RequestFilter">
+</parameter>
+</method>
+<method name="cancelAll"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="tag" type="java.lang.Object">
+</parameter>
+</method>
+<method name="getCache"
+ return="com.android.volley.Cache"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getSequenceNumber"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="removeRequestFinishedListener"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="listener" type="com.android.volley.RequestQueue.RequestFinishedListener&lt;T&gt;">
+</parameter>
+</method>
+<method name="start"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="stop"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+<interface name="RequestQueue.RequestFilter"
+ abstract="true"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="apply"
+ return="boolean"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="request" type="com.android.volley.Request&lt;?&gt;">
+</parameter>
+</method>
+</interface>
+<interface name="RequestQueue.RequestFinishedListener"
+ abstract="true"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="onRequestFinished"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="request" type="com.android.volley.Request&lt;T&gt;">
+</parameter>
+</method>
+</interface>
+<class name="Response"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="error"
+ return="com.android.volley.Response&lt;T&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="error" type="com.android.volley.VolleyError">
+</parameter>
+</method>
+<method name="isSuccess"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="success"
+ return="com.android.volley.Response&lt;T&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="result" type="T">
+</parameter>
+<parameter name="cacheEntry" type="com.android.volley.Cache.Entry">
+</parameter>
+</method>
+<field name="cacheEntry"
+ type="com.android.volley.Cache.Entry"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="error"
+ type="com.android.volley.VolleyError"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="intermediate"
+ type="boolean"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="result"
+ type="T"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+<interface name="Response.ErrorListener"
+ abstract="true"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="onErrorResponse"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="error" type="com.android.volley.VolleyError">
+</parameter>
+</method>
+</interface>
+<interface name="Response.Listener"
+ abstract="true"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="onResponse"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="response" type="T">
+</parameter>
+</method>
+</interface>
+<interface name="ResponseDelivery"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="postError"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="request" type="com.android.volley.Request&lt;?&gt;">
+</parameter>
+<parameter name="error" type="com.android.volley.VolleyError">
+</parameter>
+</method>
+<method name="postResponse"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="request" type="com.android.volley.Request&lt;?&gt;">
+</parameter>
+<parameter name="response" type="com.android.volley.Response&lt;?&gt;">
+</parameter>
+</method>
+<method name="postResponse"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="request" type="com.android.volley.Request&lt;?&gt;">
+</parameter>
+<parameter name="response" type="com.android.volley.Response&lt;?&gt;">
+</parameter>
+<parameter name="runnable" type="java.lang.Runnable">
+</parameter>
+</method>
+</interface>
+<interface name="RetryPolicy"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="getCurrentRetryCount"
+ return="int"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getCurrentTimeout"
+ return="int"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="retry"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="error" type="com.android.volley.VolleyError">
+</parameter>
+<exception name="VolleyError" type="com.android.volley.VolleyError">
+</exception>
+</method>
+</interface>
+<class name="ServerError"
+ extends="com.android.volley.VolleyError"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="ServerError"
+ type="com.android.volley.ServerError"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="networkResponse" type="com.android.volley.NetworkResponse">
+</parameter>
+</constructor>
+<constructor name="ServerError"
+ type="com.android.volley.ServerError"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+</class>
+<class name="TimeoutError"
+ extends="com.android.volley.VolleyError"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="TimeoutError"
+ type="com.android.volley.TimeoutError"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+</class>
+<class name="VolleyError"
+ extends="java.lang.Exception"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="VolleyError"
+ type="com.android.volley.VolleyError"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<constructor name="VolleyError"
+ type="com.android.volley.VolleyError"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="response" type="com.android.volley.NetworkResponse">
+</parameter>
+</constructor>
+<constructor name="VolleyError"
+ type="com.android.volley.VolleyError"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="exceptionMessage" type="java.lang.String">
+</parameter>
+</constructor>
+<constructor name="VolleyError"
+ type="com.android.volley.VolleyError"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="exceptionMessage" type="java.lang.String">
+</parameter>
+<parameter name="reason" type="java.lang.Throwable">
+</parameter>
+</constructor>
+<constructor name="VolleyError"
+ type="com.android.volley.VolleyError"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="cause" type="java.lang.Throwable">
+</parameter>
+</constructor>
+<method name="getNetworkTimeMs"
+ return="long"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<field name="networkResponse"
+ type="com.android.volley.NetworkResponse"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+<class name="VolleyLog"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="VolleyLog"
+ type="com.android.volley.VolleyLog"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="d"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="format" type="java.lang.String">
+</parameter>
+<parameter name="args" type="java.lang.Object...">
+</parameter>
+</method>
+<method name="e"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="format" type="java.lang.String">
+</parameter>
+<parameter name="args" type="java.lang.Object...">
+</parameter>
+</method>
+<method name="e"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="tr" type="java.lang.Throwable">
+</parameter>
+<parameter name="format" type="java.lang.String">
+</parameter>
+<parameter name="args" type="java.lang.Object...">
+</parameter>
+</method>
+<method name="setTag"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="tag" type="java.lang.String">
+</parameter>
+</method>
+<method name="v"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="format" type="java.lang.String">
+</parameter>
+<parameter name="args" type="java.lang.Object...">
+</parameter>
+</method>
+<method name="wtf"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="format" type="java.lang.String">
+</parameter>
+<parameter name="args" type="java.lang.Object...">
+</parameter>
+</method>
+<method name="wtf"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="tr" type="java.lang.Throwable">
+</parameter>
+<parameter name="format" type="java.lang.String">
+</parameter>
+<parameter name="args" type="java.lang.Object...">
+</parameter>
+</method>
+<field name="DEBUG"
+ type="boolean"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="TAG"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+</package>
+<package name="com.android.volley.toolbox"
+>
+<class name="AndroidAuthenticator"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="com.android.volley.toolbox.Authenticator">
+</implements>
+<constructor name="AndroidAuthenticator"
+ type="com.android.volley.toolbox.AndroidAuthenticator"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+<parameter name="account" type="android.accounts.Account">
+</parameter>
+<parameter name="authTokenType" type="java.lang.String">
+</parameter>
+</constructor>
+<constructor name="AndroidAuthenticator"
+ type="com.android.volley.toolbox.AndroidAuthenticator"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+<parameter name="account" type="android.accounts.Account">
+</parameter>
+<parameter name="authTokenType" type="java.lang.String">
+</parameter>
+<parameter name="notifyAuthFailure" type="boolean">
+</parameter>
+</constructor>
+<method name="getAccount"
+ return="android.accounts.Account"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getAuthToken"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<exception name="AuthFailureError" type="com.android.volley.AuthFailureError">
+</exception>
+</method>
+<method name="getAuthTokenType"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="invalidateAuthToken"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="authToken" type="java.lang.String">
+</parameter>
+</method>
+</class>
+<interface name="Authenticator"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="getAuthToken"
+ return="java.lang.String"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<exception name="AuthFailureError" type="com.android.volley.AuthFailureError">
+</exception>
+</method>
+<method name="invalidateAuthToken"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="authToken" type="java.lang.String">
+</parameter>
+</method>
+</interface>
+<class name="BasicNetwork"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="com.android.volley.Network">
+</implements>
+<constructor name="BasicNetwork"
+ type="com.android.volley.toolbox.BasicNetwork"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="httpStack" type="com.android.volley.toolbox.HttpStack">
+</parameter>
+</constructor>
+<constructor name="BasicNetwork"
+ type="com.android.volley.toolbox.BasicNetwork"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="httpStack" type="com.android.volley.toolbox.HttpStack">
+</parameter>
+<parameter name="pool" type="com.android.volley.toolbox.ByteArrayPool">
+</parameter>
+</constructor>
+<method name="convertHeaders"
+ return="java.util.Map&lt;java.lang.String, java.lang.String&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="headers" type="org.apache.http.Header[]">
+</parameter>
+</method>
+<method name="logError"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="what" type="java.lang.String">
+</parameter>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="start" type="long">
+</parameter>
+</method>
+<method name="performRequest"
+ return="com.android.volley.NetworkResponse"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="request" type="com.android.volley.Request&lt;?&gt;">
+</parameter>
+<exception name="VolleyError" type="com.android.volley.VolleyError">
+</exception>
+</method>
+<field name="DEBUG"
+ type="boolean"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+</field>
+<field name="mHttpStack"
+ type="com.android.volley.toolbox.HttpStack"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+</field>
+<field name="mPool"
+ type="com.android.volley.toolbox.ByteArrayPool"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+</field>
+</class>
+<class name="ByteArrayPool"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="ByteArrayPool"
+ type="com.android.volley.toolbox.ByteArrayPool"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="sizeLimit" type="int">
+</parameter>
+</constructor>
+<method name="getBuf"
+ return="byte[]"
+ abstract="false"
+ native="false"
+ synchronized="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="len" type="int">
+</parameter>
+</method>
+<method name="returnBuf"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="buf" type="byte[]">
+</parameter>
+</method>
+<field name="BUF_COMPARATOR"
+ type="java.util.Comparator"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+</field>
+</class>
+<class name="ClearCacheRequest"
+ extends="com.android.volley.Request"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="ClearCacheRequest"
+ type="com.android.volley.toolbox.ClearCacheRequest"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="cache" type="com.android.volley.Cache">
+</parameter>
+<parameter name="callback" type="java.lang.Runnable">
+</parameter>
+</constructor>
+<method name="deliverResponse"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="response" type="java.lang.Object">
+</parameter>
+</method>
+<method name="parseNetworkResponse"
+ return="com.android.volley.Response&lt;java.lang.Object&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="response" type="com.android.volley.NetworkResponse">
+</parameter>
+</method>
+</class>
+<class name="DiskBasedCache"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="com.android.volley.Cache">
+</implements>
+<constructor name="DiskBasedCache"
+ type="com.android.volley.toolbox.DiskBasedCache"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="rootDirectory" type="java.io.File">
+</parameter>
+<parameter name="maxCacheSizeInBytes" type="int">
+</parameter>
+</constructor>
+<constructor name="DiskBasedCache"
+ type="com.android.volley.toolbox.DiskBasedCache"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="rootDirectory" type="java.io.File">
+</parameter>
+</constructor>
+<method name="clear"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="get"
+ return="com.android.volley.Cache.Entry"
+ abstract="false"
+ native="false"
+ synchronized="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="key" type="java.lang.String">
+</parameter>
+</method>
+<method name="getFileForKey"
+ return="java.io.File"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="key" type="java.lang.String">
+</parameter>
+</method>
+<method name="initialize"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="invalidate"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="key" type="java.lang.String">
+</parameter>
+<parameter name="fullExpire" type="boolean">
+</parameter>
+</method>
+<method name="put"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="key" type="java.lang.String">
+</parameter>
+<parameter name="entry" type="com.android.volley.Cache.Entry">
+</parameter>
+</method>
+<method name="remove"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="key" type="java.lang.String">
+</parameter>
+</method>
+</class>
+<class name="HttpClientStack"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="com.android.volley.toolbox.HttpStack">
+</implements>
+<constructor name="HttpClientStack"
+ type="com.android.volley.toolbox.HttpClientStack"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="client" type="org.apache.http.client.HttpClient">
+</parameter>
+</constructor>
+<method name="onPrepareRequest"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="request" type="org.apache.http.client.methods.HttpUriRequest">
+</parameter>
+<exception name="IOException" type="java.io.IOException">
+</exception>
+</method>
+<method name="performRequest"
+ return="org.apache.http.HttpResponse"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="request" type="com.android.volley.Request&lt;?&gt;">
+</parameter>
+<parameter name="additionalHeaders" type="java.util.Map&lt;java.lang.String, java.lang.String&gt;">
+</parameter>
+<exception name="AuthFailureError" type="com.android.volley.AuthFailureError">
+</exception>
+<exception name="IOException" type="java.io.IOException">
+</exception>
+</method>
+<field name="mClient"
+ type="org.apache.http.client.HttpClient"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+</field>
+</class>
+<class name="HttpClientStack.HttpPatch"
+ extends="org.apache.http.client.methods.HttpEntityEnclosingRequestBase"
+ abstract="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="HttpClientStack.HttpPatch"
+ type="com.android.volley.toolbox.HttpClientStack.HttpPatch"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<constructor name="HttpClientStack.HttpPatch"
+ type="com.android.volley.toolbox.HttpClientStack.HttpPatch"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="uri" type="java.net.URI">
+</parameter>
+</constructor>
+<constructor name="HttpClientStack.HttpPatch"
+ type="com.android.volley.toolbox.HttpClientStack.HttpPatch"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="uri" type="java.lang.String">
+</parameter>
+</constructor>
+<method name="getMethod"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<field name="METHOD_NAME"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ value="&quot;PATCH&quot;"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+<class name="HttpHeaderParser"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="HttpHeaderParser"
+ type="com.android.volley.toolbox.HttpHeaderParser"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="parseCacheHeaders"
+ return="com.android.volley.Cache.Entry"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="response" type="com.android.volley.NetworkResponse">
+</parameter>
+</method>
+<method name="parseCharset"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="headers" type="java.util.Map&lt;java.lang.String, java.lang.String&gt;">
+</parameter>
+<parameter name="defaultCharset" type="java.lang.String">
+</parameter>
+</method>
+<method name="parseCharset"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="headers" type="java.util.Map&lt;java.lang.String, java.lang.String&gt;">
+</parameter>
+</method>
+<method name="parseDateAsEpoch"
+ return="long"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="dateStr" type="java.lang.String">
+</parameter>
+</method>
+</class>
+<interface name="HttpStack"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="performRequest"
+ return="org.apache.http.HttpResponse"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="request" type="com.android.volley.Request&lt;?&gt;">
+</parameter>
+<parameter name="additionalHeaders" type="java.util.Map&lt;java.lang.String, java.lang.String&gt;">
+</parameter>
+<exception name="AuthFailureError" type="com.android.volley.AuthFailureError">
+</exception>
+<exception name="IOException" type="java.io.IOException">
+</exception>
+</method>
+</interface>
+<class name="HurlStack"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="com.android.volley.toolbox.HttpStack">
+</implements>
+<constructor name="HurlStack"
+ type="com.android.volley.toolbox.HurlStack"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<constructor name="HurlStack"
+ type="com.android.volley.toolbox.HurlStack"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="urlRewriter" type="com.android.volley.toolbox.HurlStack.UrlRewriter">
+</parameter>
+</constructor>
+<constructor name="HurlStack"
+ type="com.android.volley.toolbox.HurlStack"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="urlRewriter" type="com.android.volley.toolbox.HurlStack.UrlRewriter">
+</parameter>
+<parameter name="sslSocketFactory" type="javax.net.ssl.SSLSocketFactory">
+</parameter>
+</constructor>
+<method name="createConnection"
+ return="java.net.HttpURLConnection"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="url" type="java.net.URL">
+</parameter>
+<exception name="IOException" type="java.io.IOException">
+</exception>
+</method>
+<method name="performRequest"
+ return="org.apache.http.HttpResponse"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="request" type="com.android.volley.Request&lt;?&gt;">
+</parameter>
+<parameter name="additionalHeaders" type="java.util.Map&lt;java.lang.String, java.lang.String&gt;">
+</parameter>
+<exception name="AuthFailureError" type="com.android.volley.AuthFailureError">
+</exception>
+<exception name="IOException" type="java.io.IOException">
+</exception>
+</method>
+</class>
+<interface name="HurlStack.UrlRewriter"
+ abstract="true"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="rewriteUrl"
+ return="java.lang.String"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="originalUrl" type="java.lang.String">
+</parameter>
+</method>
+</interface>
+<class name="ImageLoader"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="ImageLoader"
+ type="com.android.volley.toolbox.ImageLoader"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="queue" type="com.android.volley.RequestQueue">
+</parameter>
+<parameter name="imageCache" type="com.android.volley.toolbox.ImageLoader.ImageCache">
+</parameter>
+</constructor>
+<method name="get"
+ return="com.android.volley.toolbox.ImageLoader.ImageContainer"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="requestUrl" type="java.lang.String">
+</parameter>
+<parameter name="listener" type="com.android.volley.toolbox.ImageLoader.ImageListener">
+</parameter>
+</method>
+<method name="get"
+ return="com.android.volley.toolbox.ImageLoader.ImageContainer"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="requestUrl" type="java.lang.String">
+</parameter>
+<parameter name="imageListener" type="com.android.volley.toolbox.ImageLoader.ImageListener">
+</parameter>
+<parameter name="maxWidth" type="int">
+</parameter>
+<parameter name="maxHeight" type="int">
+</parameter>
+</method>
+<method name="get"
+ return="com.android.volley.toolbox.ImageLoader.ImageContainer"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="requestUrl" type="java.lang.String">
+</parameter>
+<parameter name="imageListener" type="com.android.volley.toolbox.ImageLoader.ImageListener">
+</parameter>
+<parameter name="maxWidth" type="int">
+</parameter>
+<parameter name="maxHeight" type="int">
+</parameter>
+<parameter name="scaleType" type="android.widget.ImageView.ScaleType">
+</parameter>
+</method>
+<method name="getImageListener"
+ return="com.android.volley.toolbox.ImageLoader.ImageListener"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="view" type="android.widget.ImageView">
+</parameter>
+<parameter name="defaultImageResId" type="int">
+</parameter>
+<parameter name="errorImageResId" type="int">
+</parameter>
+</method>
+<method name="isCached"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="requestUrl" type="java.lang.String">
+</parameter>
+<parameter name="maxWidth" type="int">
+</parameter>
+<parameter name="maxHeight" type="int">
+</parameter>
+</method>
+<method name="isCached"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="requestUrl" type="java.lang.String">
+</parameter>
+<parameter name="maxWidth" type="int">
+</parameter>
+<parameter name="maxHeight" type="int">
+</parameter>
+<parameter name="scaleType" type="android.widget.ImageView.ScaleType">
+</parameter>
+</method>
+<method name="makeImageRequest"
+ return="com.android.volley.Request&lt;android.graphics.Bitmap&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="requestUrl" type="java.lang.String">
+</parameter>
+<parameter name="maxWidth" type="int">
+</parameter>
+<parameter name="maxHeight" type="int">
+</parameter>
+<parameter name="scaleType" type="android.widget.ImageView.ScaleType">
+</parameter>
+<parameter name="cacheKey" type="java.lang.String">
+</parameter>
+</method>
+<method name="onGetImageError"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="cacheKey" type="java.lang.String">
+</parameter>
+<parameter name="error" type="com.android.volley.VolleyError">
+</parameter>
+</method>
+<method name="onGetImageSuccess"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="cacheKey" type="java.lang.String">
+</parameter>
+<parameter name="response" type="android.graphics.Bitmap">
+</parameter>
+</method>
+<method name="setBatchedResponseDelay"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="newBatchedResponseDelayMs" type="int">
+</parameter>
+</method>
+</class>
+<interface name="ImageLoader.ImageCache"
+ abstract="true"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="getBitmap"
+ return="android.graphics.Bitmap"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="url" type="java.lang.String">
+</parameter>
+</method>
+<method name="putBitmap"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="bitmap" type="android.graphics.Bitmap">
+</parameter>
+</method>
+</interface>
+<class name="ImageLoader.ImageContainer"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="ImageLoader.ImageContainer"
+ type="com.android.volley.toolbox.ImageLoader.ImageContainer"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="bitmap" type="android.graphics.Bitmap">
+</parameter>
+<parameter name="requestUrl" type="java.lang.String">
+</parameter>
+<parameter name="cacheKey" type="java.lang.String">
+</parameter>
+<parameter name="listener" type="com.android.volley.toolbox.ImageLoader.ImageListener">
+</parameter>
+</constructor>
+<method name="cancelRequest"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getBitmap"
+ return="android.graphics.Bitmap"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getRequestUrl"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+<interface name="ImageLoader.ImageListener"
+ abstract="true"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="com.android.volley.Response.ErrorListener">
+</implements>
+<method name="onResponse"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="response" type="com.android.volley.toolbox.ImageLoader.ImageContainer">
+</parameter>
+<parameter name="isImmediate" type="boolean">
+</parameter>
+</method>
+</interface>
+<class name="ImageRequest"
+ extends="com.android.volley.Request"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="ImageRequest"
+ type="com.android.volley.toolbox.ImageRequest"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="listener" type="com.android.volley.Response.Listener&lt;android.graphics.Bitmap&gt;">
+</parameter>
+<parameter name="maxWidth" type="int">
+</parameter>
+<parameter name="maxHeight" type="int">
+</parameter>
+<parameter name="scaleType" type="android.widget.ImageView.ScaleType">
+</parameter>
+<parameter name="decodeConfig" type="android.graphics.Bitmap.Config">
+</parameter>
+<parameter name="errorListener" type="com.android.volley.Response.ErrorListener">
+</parameter>
+</constructor>
+<constructor name="ImageRequest"
+ type="com.android.volley.toolbox.ImageRequest"
+ static="false"
+ final="false"
+ deprecated="deprecated"
+ visibility="public"
+>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="listener" type="com.android.volley.Response.Listener&lt;android.graphics.Bitmap&gt;">
+</parameter>
+<parameter name="maxWidth" type="int">
+</parameter>
+<parameter name="maxHeight" type="int">
+</parameter>
+<parameter name="decodeConfig" type="android.graphics.Bitmap.Config">
+</parameter>
+<parameter name="errorListener" type="com.android.volley.Response.ErrorListener">
+</parameter>
+</constructor>
+<method name="deliverResponse"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="response" type="android.graphics.Bitmap">
+</parameter>
+</method>
+<method name="parseNetworkResponse"
+ return="com.android.volley.Response&lt;android.graphics.Bitmap&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="response" type="com.android.volley.NetworkResponse">
+</parameter>
+</method>
+<field name="DEFAULT_IMAGE_BACKOFF_MULT"
+ type="float"
+ transient="false"
+ volatile="false"
+ value="2.0f"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="DEFAULT_IMAGE_MAX_RETRIES"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="2"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="DEFAULT_IMAGE_TIMEOUT_MS"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="1000"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+<class name="JsonArrayRequest"
+ extends="com.android.volley.toolbox.JsonRequest"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="JsonArrayRequest"
+ type="com.android.volley.toolbox.JsonArrayRequest"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="listener" type="com.android.volley.Response.Listener&lt;org.json.JSONArray&gt;">
+</parameter>
+<parameter name="errorListener" type="com.android.volley.Response.ErrorListener">
+</parameter>
+</constructor>
+<constructor name="JsonArrayRequest"
+ type="com.android.volley.toolbox.JsonArrayRequest"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="method" type="int">
+</parameter>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="jsonRequest" type="org.json.JSONArray">
+</parameter>
+<parameter name="listener" type="com.android.volley.Response.Listener&lt;org.json.JSONArray&gt;">
+</parameter>
+<parameter name="errorListener" type="com.android.volley.Response.ErrorListener">
+</parameter>
+</constructor>
+<method name="parseNetworkResponse"
+ return="com.android.volley.Response&lt;org.json.JSONArray&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="response" type="com.android.volley.NetworkResponse">
+</parameter>
+</method>
+</class>
+<class name="JsonObjectRequest"
+ extends="com.android.volley.toolbox.JsonRequest"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="JsonObjectRequest"
+ type="com.android.volley.toolbox.JsonObjectRequest"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="method" type="int">
+</parameter>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="jsonRequest" type="org.json.JSONObject">
+</parameter>
+<parameter name="listener" type="com.android.volley.Response.Listener&lt;org.json.JSONObject&gt;">
+</parameter>
+<parameter name="errorListener" type="com.android.volley.Response.ErrorListener">
+</parameter>
+</constructor>
+<constructor name="JsonObjectRequest"
+ type="com.android.volley.toolbox.JsonObjectRequest"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="jsonRequest" type="org.json.JSONObject">
+</parameter>
+<parameter name="listener" type="com.android.volley.Response.Listener&lt;org.json.JSONObject&gt;">
+</parameter>
+<parameter name="errorListener" type="com.android.volley.Response.ErrorListener">
+</parameter>
+</constructor>
+<method name="parseNetworkResponse"
+ return="com.android.volley.Response&lt;org.json.JSONObject&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="response" type="com.android.volley.NetworkResponse">
+</parameter>
+</method>
+</class>
+<class name="JsonRequest"
+ extends="com.android.volley.Request"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="JsonRequest"
+ type="com.android.volley.toolbox.JsonRequest"
+ static="false"
+ final="false"
+ deprecated="deprecated"
+ visibility="public"
+>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="requestBody" type="java.lang.String">
+</parameter>
+<parameter name="listener" type="com.android.volley.Response.Listener&lt;T&gt;">
+</parameter>
+<parameter name="errorListener" type="com.android.volley.Response.ErrorListener">
+</parameter>
+</constructor>
+<constructor name="JsonRequest"
+ type="com.android.volley.toolbox.JsonRequest"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="method" type="int">
+</parameter>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="requestBody" type="java.lang.String">
+</parameter>
+<parameter name="listener" type="com.android.volley.Response.Listener&lt;T&gt;">
+</parameter>
+<parameter name="errorListener" type="com.android.volley.Response.ErrorListener">
+</parameter>
+</constructor>
+<method name="deliverResponse"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="response" type="T">
+</parameter>
+</method>
+<method name="parseNetworkResponse"
+ return="com.android.volley.Response&lt;T&gt;"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="response" type="com.android.volley.NetworkResponse">
+</parameter>
+</method>
+<field name="PROTOCOL_CHARSET"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ value="&quot;utf-8&quot;"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+</field>
+</class>
+<class name="NetworkImageView"
+ extends="android.widget.ImageView"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="NetworkImageView"
+ type="com.android.volley.toolbox.NetworkImageView"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+</constructor>
+<constructor name="NetworkImageView"
+ type="com.android.volley.toolbox.NetworkImageView"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+<parameter name="attrs" type="android.util.AttributeSet">
+</parameter>
+</constructor>
+<constructor name="NetworkImageView"
+ type="com.android.volley.toolbox.NetworkImageView"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+<parameter name="attrs" type="android.util.AttributeSet">
+</parameter>
+<parameter name="defStyle" type="int">
+</parameter>
+</constructor>
+<method name="setDefaultImageResId"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="defaultImage" type="int">
+</parameter>
+</method>
+<method name="setErrorImageResId"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="errorImage" type="int">
+</parameter>
+</method>
+<method name="setImageUrl"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="imageLoader" type="com.android.volley.toolbox.ImageLoader">
+</parameter>
+</method>
+</class>
+<class name="NoCache"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="com.android.volley.Cache">
+</implements>
+<constructor name="NoCache"
+ type="com.android.volley.toolbox.NoCache"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="clear"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="get"
+ return="com.android.volley.Cache.Entry"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="key" type="java.lang.String">
+</parameter>
+</method>
+<method name="initialize"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="invalidate"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="key" type="java.lang.String">
+</parameter>
+<parameter name="fullExpire" type="boolean">
+</parameter>
+</method>
+<method name="put"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="key" type="java.lang.String">
+</parameter>
+<parameter name="entry" type="com.android.volley.Cache.Entry">
+</parameter>
+</method>
+<method name="remove"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="key" type="java.lang.String">
+</parameter>
+</method>
+</class>
+<class name="PoolingByteArrayOutputStream"
+ extends="java.io.ByteArrayOutputStream"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="PoolingByteArrayOutputStream"
+ type="com.android.volley.toolbox.PoolingByteArrayOutputStream"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pool" type="com.android.volley.toolbox.ByteArrayPool">
+</parameter>
+</constructor>
+<constructor name="PoolingByteArrayOutputStream"
+ type="com.android.volley.toolbox.PoolingByteArrayOutputStream"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pool" type="com.android.volley.toolbox.ByteArrayPool">
+</parameter>
+<parameter name="size" type="int">
+</parameter>
+</constructor>
+<method name="finalize"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+<class name="RequestFuture"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="java.util.concurrent.Future">
+</implements>
+<implements name="com.android.volley.Response.ErrorListener">
+</implements>
+<implements name="com.android.volley.Response.Listener">
+</implements>
+<method name="cancel"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="mayInterruptIfRunning" type="boolean">
+</parameter>
+</method>
+<method name="get"
+ return="T"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<exception name="ExecutionException" type="java.util.concurrent.ExecutionException">
+</exception>
+<exception name="InterruptedException" type="java.lang.InterruptedException">
+</exception>
+</method>
+<method name="get"
+ return="T"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="timeout" type="long">
+</parameter>
+<parameter name="unit" type="java.util.concurrent.TimeUnit">
+</parameter>
+<exception name="ExecutionException" type="java.util.concurrent.ExecutionException">
+</exception>
+<exception name="InterruptedException" type="java.lang.InterruptedException">
+</exception>
+<exception name="TimeoutException" type="java.util.concurrent.TimeoutException">
+</exception>
+</method>
+<method name="isCancelled"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="isDone"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="newFuture"
+ return="com.android.volley.toolbox.RequestFuture&lt;E&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="onErrorResponse"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="error" type="com.android.volley.VolleyError">
+</parameter>
+</method>
+<method name="onResponse"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="response" type="T">
+</parameter>
+</method>
+<method name="setRequest"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="request" type="com.android.volley.Request&lt;?&gt;">
+</parameter>
+</method>
+</class>
+<class name="StringRequest"
+ extends="com.android.volley.Request"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="StringRequest"
+ type="com.android.volley.toolbox.StringRequest"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="method" type="int">
+</parameter>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="listener" type="com.android.volley.Response.Listener&lt;java.lang.String&gt;">
+</parameter>
+<parameter name="errorListener" type="com.android.volley.Response.ErrorListener">
+</parameter>
+</constructor>
+<constructor name="StringRequest"
+ type="com.android.volley.toolbox.StringRequest"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="listener" type="com.android.volley.Response.Listener&lt;java.lang.String&gt;">
+</parameter>
+<parameter name="errorListener" type="com.android.volley.Response.ErrorListener">
+</parameter>
+</constructor>
+<method name="deliverResponse"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="response" type="java.lang.String">
+</parameter>
+</method>
+<method name="parseNetworkResponse"
+ return="com.android.volley.Response&lt;java.lang.String&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="response" type="com.android.volley.NetworkResponse">
+</parameter>
+</method>
+</class>
+<class name="Volley"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="Volley"
+ type="com.android.volley.toolbox.Volley"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="newRequestQueue"
+ return="com.android.volley.RequestQueue"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+<parameter name="stack" type="com.android.volley.toolbox.HttpStack">
+</parameter>
+</method>
+<method name="newRequestQueue"
+ return="com.android.volley.RequestQueue"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+</method>
+</class>
+</package>
+</api>
